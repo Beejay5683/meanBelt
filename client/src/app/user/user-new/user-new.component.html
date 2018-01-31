@@ -1,0 +1,28 @@
+<div>
+	<h3>Welcome!</h3>
+	<form 
+		(submit)="onSubmit();" 
+		#createForm="ngForm"
+	>
+		<label>Name:</label>
+		<input 
+			type="text" 
+			name="name"
+			required
+			minlength="2"
+			[(ngModel)]="user.name"
+			#name="ngModel" 
+		>
+		<small
+			class="errors"
+			[hidden]="name.valid || (name.untouched)"
+		>Name is required(minimum character Length of 2)	
+		</small>
+		<button 
+			type="submit"
+			[disabled]="!createForm.valid"
+		>Enter
+		</button>
+		
+	</form>
+</div>
